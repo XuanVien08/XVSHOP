@@ -89,23 +89,30 @@
     &.sticky__header {
       height: $header-tablet-height;
     }
+    .navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      transform: translateX(100%);
+      transition: transform 0.5s ease;
+      z-index: 999;
+      // background: rgba(0, 0, 0, 0.53);
+    }
     .menu {
       box-shadow: $box-shadow1;
       position: absolute;
       top: 0;
       right: 0;
       width: 50%;
-
       height: 100vh;
       background: #fff;
       z-index: 999;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      transform: translateX(100%);
-      transition: transform 0.5s ease;
 
-      // display: none !important;
       @include mobile {
         width: 100%;
       }

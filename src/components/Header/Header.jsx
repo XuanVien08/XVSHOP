@@ -63,8 +63,8 @@ const Header = () => {
                 </div>
               </div>
             </Link>
-            <div className="navigation" onClick={menuToggle}>
-              <ul className="menu" ref={menuRef}>
+            <div className="navigation" ref={menuRef} onClick={menuToggle}>
+              <ul className="menu">
                 <div className="nav__item nav__close" onClick={menuToggle}>
                   <i className="ri-close-line" onClick={menuToggle}></i>
                 </div>
