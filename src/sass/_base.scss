@@ -1,0 +1,87 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+/* reset browser default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  color: $small-text-color;
+  font-size: 1rem;
+}
+
+h1,
+h2 {
+  font-size: $heading-fontSize;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+img {
+  width: 100%;
+}
+section {
+  padding: 60px 0px;
+  .section__title {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+.buy__btn {
+  border: none;
+  outline: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background: $primary-color;
+  color: $txt-white;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 40px 0;
+
+  a:hover {
+    color: unset;
+  }
+}
+
+.logo {
+  @include flex-align(center);
+  column-gap: 8px;
+  // img {
+  //   width: 1.5rem;
+  //   height: 1.5rem;
+  // }
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $primary-color;
+  }
+  span i {
+    color: #fff;
+    font-size: 1.6rem;
+  }
+}

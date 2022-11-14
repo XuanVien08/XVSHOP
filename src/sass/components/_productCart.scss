@@ -1,0 +1,36 @@
+.product {
+  &__item {
+    cursor: pointer;
+  }
+  a:hover {
+    color: unset;
+  }
+  &__info {
+    h3 {
+      font-size: 1.2rem;
+      color: $primary-color;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__cart-bottom {
+    .price {
+      color: $primary-color;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    span i {
+      font-size: 1.2rem;
+      padding: 5px;
+      background: $primary-color;
+      color: #fff;
+      border-radius: 50px;
+    }
+  }
+}

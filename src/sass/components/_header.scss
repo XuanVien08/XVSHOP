@@ -1,0 +1,143 @@
+.header {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: 99;
+  line-height: calc(70 / 25);
+  transition: height 0.3s ease-in;
+
+  &.sticky__header {
+    height: $header-shrink-height;
+    box-shadow: $box-shadow1;
+  }
+
+  .nav__wrapper {
+    @include flex(center, space-between);
+  }
+
+  .navigation {
+    .nav__close {
+      display: none;
+    }
+    .menu {
+      @include flex-align(center);
+      column-gap: 2.7rem;
+      margin-bottom: 0;
+    }
+  }
+  .nav__item {
+    a {
+      color: $primary-color;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .nav__active {
+      font-weight: 700;
+    }
+  }
+  .nav__icons {
+    @include flex-align(center);
+    cursor: pointer;
+    column-gap: 1.2rem;
+
+    span {
+      i {
+        font-size: 1.4rem;
+        color: $primary-color;
+      }
+      img {
+        width: 30px;
+        height: 33px;
+        padding-bottom: 5px;
+      }
+    }
+
+    .cart__icon,
+    .fav__icon {
+      position: relative;
+
+      .badge {
+        position: absolute;
+        @include flex(center, center);
+        width: 17px;
+        height: 17px;
+        top: 20%;
+        right: -35%;
+        content: "";
+        background-color: $primary-color;
+        color: $txt-white;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        z-index: 10;
+      }
+    }
+  }
+
+  .mobile__menu {
+    font-size: 1.3rem;
+    color: $primary-color;
+    display: none;
+  }
+
+  @include tablet {
+    height: $header-tablet-height;
+    line-height: calc(60 / 25);
+    &.sticky__header {
+      height: $header-tablet-height;
+    }
+    .menu {
+      box-shadow: $box-shadow1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+
+      height: 100vh;
+      background: #fff;
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      transform: translateX(100%);
+      transition: transform 0.5s ease;
+
+      // display: none !important;
+      @include mobile {
+        width: 100%;
+      }
+      &:first-child {
+        padding-top: 40px;
+      }
+
+      .nav__item {
+        a {
+          font-size: 1.2rem;
+        }
+        .nav__active {
+          font-weight: 700;
+        }
+      }
+
+      .nav__close {
+        display: block;
+        position: absolute;
+        font-size: 1.5rem;
+        top: 0;
+        right: 30px;
+        z-index: 9999;
+      }
+    }
+
+    .active__menu {
+      transform: translateX(0);
+      // display: block;
+    }
+    .mobile__menu {
+      display: block;
+    }
+  }
+}
