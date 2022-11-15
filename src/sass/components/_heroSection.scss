@@ -1,12 +1,21 @@
 .hero__section {
   background: $hero-bg;
   .hero__content {
+    @include mobile {
+      padding-top: 0;
+    }
     padding-top: 45px;
     h2 {
       color: $primary-color;
       font-size: 2.5rem;
       font-weight: 600;
       margin: 20px 0px;
+      @include tablet {
+        font-size: 2rem;
+      }
+      @include mobile {
+        font-size: 1.6rem;
+      }
     }
 
     p {
@@ -14,6 +23,10 @@
       line-height: 28px;
       &:nth-child(1) {
         font-weight: 500;
+      }
+
+      @include tablet {
+        font-size: 0.9rem;
       }
     }
   }

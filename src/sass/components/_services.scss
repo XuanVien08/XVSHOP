@@ -27,5 +27,15 @@
       margin-top: 5px;
       color: #222;
     }
+    @include tablet {
+      // padding: 15px;
+      span i {
+        font-size: 1.8rem;
+        padding: 5px;
+      }
+      h3 {
+        font-size: 1rem;
+      }
+    }
   }
 }

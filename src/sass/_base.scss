@@ -50,6 +50,13 @@ section {
   .section__title {
     color: $primary-color;
     font-weight: 600;
+
+    @include tablet {
+      font-size: 1.7rem;
+    }
+  }
+  @include tablet {
+    padding: 40px 0;
   }
 }
 .buy__btn {
@@ -62,6 +69,10 @@ section {
   cursor: pointer;
   font-size: 1rem;
   margin: 40px 0;
+
+  @include tablet {
+    font-size: 0.9rem;
+  }
 
   a:hover {
     color: unset;

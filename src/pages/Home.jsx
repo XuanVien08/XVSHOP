@@ -55,9 +55,7 @@ const Home = () => {
                 <h2>Make Your Interior More Minimalistic & Modern</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorum blanditiis qui eos sint perspiciatis dolores nihil,
-                  pariatur architecto, voluptatum saepe aperiam nulla. Earum
-                  necessitatibus enim mollitia odio ratione autem dicta!
+                  Dolorum blanditiis qui eos sint perspiciatis dolores nihil.
                 </p>
                 <motion.button whileHover={{ scale: 1.2 }} className="buy__btn">
                   <Link to="/shop">SHOP NOW</Link>
@@ -87,10 +85,10 @@ const Home = () => {
         title="Best Sales"
       />
 
-      <section className="timer__count p-0">
+      <section className="timer__count p-2">
         <Container>
           <Row className="align-items-center">
-            <Col lg="6" md="6" className="pt-4">
+            <Col lg="6" md="6" className="pt-4  timer__count-col">
               <div className="clock__top-content">
                 <h4 className="text-white fs-6 mb-2">Limit Offers</h4>
                 <h3 className="text-white fs-5 mb-3">Quality Armchair</h3>
@@ -103,7 +101,7 @@ const Home = () => {
                 <Link to="/shop">Visit Store</Link>
               </motion.button>
             </Col>
-            <Col lg="6" md="6" className="text-end">
+            <Col lg="6" md="6" className="text-end counter__img">
               <img src={counterImg} alt="counterImg" />
             </Col>
           </Row>

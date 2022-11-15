@@ -115,6 +115,7 @@
 
       @include mobile {
         width: 100%;
+        box-shadow: unset;
       }
       &:first-child {
         padding-top: 40px;

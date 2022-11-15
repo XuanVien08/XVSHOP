@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <Container>
         <Row>
-          <Col lg="4">
+          <Col lg="4" md="6" sm="12" className="mb-4">
             <div className="logo">
               <span>
                 <i className="ri-store-2-line"></i>
@@ -24,7 +24,7 @@ const Footer = () => {
               doloremque at.
             </p>
           </Col>
-          <Col lg="3">
+          <Col lg="3" md="6" xs="6" className="mb-4">
             <div className="footer__quick-links">
               <h4 className="quick__link-title"> Top Categories</h4>
               <ListGroup>
@@ -43,7 +43,7 @@ const Footer = () => {
               </ListGroup>
             </div>
           </Col>
-          <Col lg="2">
+          <Col lg="2" md="6" xs="6" className="mb-4">
             {" "}
             <div className="footer__quick-links">
               <h4 className="quick__link-title"> Usefull Links</h4>
@@ -63,7 +63,7 @@ const Footer = () => {
               </ListGroup>
             </div>
           </Col>
-          <Col lg="3">
+          <Col lg="3" md="6" sm="12">
             <div className="footer__quick-links">
               <h4 className="quick__link-title"> Contact</h4>
               <ListGroup className="footer__contact">
