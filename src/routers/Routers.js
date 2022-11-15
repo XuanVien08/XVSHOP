@@ -21,19 +21,11 @@ const publicRoutes = [
 const Routers = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<Navigate to="home" />} />
+      <Route path="/" element={<Navigate to="home" />} />
       {publicRoutes.map((route, index) => {
         const Page = route.component;
         return <Route key={index} path={route.path} element={<Page />} />;
-      })} */}
-
-      <Route path="home" element={<Home />} />
-      <Route path="shop" element={<Shop />} />
-      <Route path="shop/:id" element={<ProductDetail />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="checkout" element={<CheckOut />} />
-      <Route path="login" element={<Login />} />
-      <Route path="signup" element={<Signup />} />
+      })}
     </Routes>
   );
 };
