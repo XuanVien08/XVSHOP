@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, addWishList } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCart = ({ item }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,17 @@ const ProductCart = ({ item }) => {
       quantity: 1,
     });
     dispatch(action);
-    alert("product  added to the cart");
+
+    toast.success("🛒 Product Added To The Cart");
+  };
+
+  const handleAddToWishList = () => {
+    const action = addWishList({
+      id: item.id,
+      item,
+      quantity: 1,
+    });
+    dispatch(action);
   };
 
   return (
@@ -35,6 +46,15 @@ const ProductCart = ({ item }) => {
             <span>{item.category}</span>
           </div>
         </Link>
+        <div className="product__item-menu">
+          <motion.div
+            whileTap={{ scale: 1.3 }}
+            onClick={handleAddToWishList}
+            className={`menu-item rounded-circle d-flex align-items-center justify-content-center`}
+          >
+            <i className="ri-heart-2-fill"></i>
+          </motion.div>
+        </div>
         <div className="product__cart-bottom d-flex align-items-center justify-content-between p-2">
           <span className="price">${item.price}</span>
           <motion.span whileTap={{ scale: 1.2 }} onClick={handleAddToCart}>

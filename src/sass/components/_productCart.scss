@@ -1,6 +1,53 @@
 .product {
   &__item {
     cursor: pointer;
+    position: relative;
+
+    &:hover {
+      .product__item-menu {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+
+      transition: all 0.5s;
+      transform: scale(0.5);
+      transform-origin: top;
+      opacity: 0;
+      @include tablet {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .menu-item {
+      flex-flow: row nowrap;
+
+      width: 2.5rem;
+      height: 2.5rem;
+
+      color: rgba(255, 255, 255, 0.5);
+      background-color: #444;
+
+      transition: all 0.35s;
+      opacity: 0.7;
+
+      &:hover {
+        color: white;
+        background-color: $primary-color;
+        opacity: 1;
+      }
+    }
+    // .active__menu {
+    //   color: white;
+    //   background-color: $primary-color;
+    //   opacity: 1;
+    // }
   }
   a:hover {
     color: unset;

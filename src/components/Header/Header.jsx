@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
 
 import user_icon from "../../assets/images/user-icon.png";
+import { useSelector } from "react-redux";
+import {
+  cartItemCountSelector,
+  wishListItemCountSelector,
+} from "../../redux/slices/selectors";
 
 const nav__link = [
   {
@@ -24,6 +29,7 @@ const nav__link = [
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (
@@ -45,6 +51,9 @@ const Header = () => {
     stickyHeaderFunc();
     return () => window.removeEventListener("scroll", stickyHeaderFunc);
   }, []);
+
+  const totalQuantity = useSelector(cartItemCountSelector);
+  const totalWishList = useSelector(wishListItemCountSelector);
 
   return (
     <header className="header" ref={headerRef}>
@@ -86,11 +95,11 @@ const Header = () => {
             <div className="nav__icons">
               <span className="fav__icon">
                 <i className="ri-heart-2-line"></i>
-                <span className="badge">1</span>
+                <span className="badge">{totalWishList}</span>
               </span>
               <span className="cart__icon">
                 <i className="ri-shopping-bag-3-line"></i>
-                <span className="badge">1</span>
+                <span className="badge">{totalQuantity}</span>
               </span>
               <span>
                 <motion.img
