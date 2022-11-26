@@ -15,6 +15,7 @@ const ProductCart = ({ item }) => {
       quantity: 1,
     });
     dispatch(action);
+    alert("product  added to the cart");
   };
 
   return (
