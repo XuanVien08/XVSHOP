@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const cartItemSelector = (state) => state.cart.cartItem;
+const cartItemSelector = (state) => state.cart.cartItems;
 
 // Count number of products in cart
 export const cartItemCountSelector = createSelector(

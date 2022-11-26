@@ -13,14 +13,11 @@ import counterImg from "../assets/images/hero-img.png";
 import heroImg from "../assets/images/counter-timer-img.png";
 import Clock from "../components/UI/Clock";
 import RenderProductList from "../components/UI/RenderProductList";
-import { cartTotalSelector } from "../redux/slices/selectors";
-import { useSelector } from "react-redux";
 
 const Home = () => {
   const [productList, setProductList] = useImmer({});
   const year = new Date().getFullYear();
-  const cartTotal = useSelector(cartTotalSelector);
-  // console.log(cartTotal);
+
   useEffect(() => {
     const filterTrendingProduct = products.filter(
       (item) => item.category === "chair"
