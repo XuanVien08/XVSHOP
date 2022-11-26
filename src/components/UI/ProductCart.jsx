@@ -2,8 +2,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 const ProductCart = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const action = addToCart({
+      id: item.id,
+      item,
+      quantity: 1,
+    });
+    dispatch(action);
+  };
+
   return (
     <Col lg="3" md="6" className="product mb-2">
       <div className="product__item">
@@ -23,7 +36,7 @@ const ProductCart = ({ item }) => {
         </Link>
         <div className="product__cart-bottom d-flex align-items-center justify-content-between p-2">
           <span className="price">${item.price}</span>
-          <motion.span whileTap={{ scale: 1.2 }}>
+          <motion.span whileTap={{ scale: 1.2 }} onClick={handleAddToCart}>
             <i className="ri-add-line"></i>
           </motion.span>
         </div>
