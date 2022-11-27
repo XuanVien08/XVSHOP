@@ -20,7 +20,7 @@ const ProductCart = ({ item }) => {
   const handleAddToCart = () => {
     const action = addToCart({
       id: item.id,
-      item,
+      item: item,
       quantity: 1,
     });
     dispatch(action);
