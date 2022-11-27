@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -8,7 +8,15 @@ import { toast } from "react-toastify";
 
 const ProductCart = ({ item }) => {
   const dispatch = useDispatch();
-
+  const wishList = useSelector((state) => state.cart.wishList);
+  const [toggleWishList, setToggleWishList] = useState(() => {
+    for (const wishListItem of wishList) {
+      if (wishListItem.id === item.id) {
+        return true;
+      }
+    }
+    return false;
+  });
   const handleAddToCart = () => {
     const action = addToCart({
       id: item.id,
@@ -16,8 +24,6 @@ const ProductCart = ({ item }) => {
       quantity: 1,
     });
     dispatch(action);
-
-    toast.success("🛒 Product Added To The Cart");
   };
 
   const handleAddToWishList = () => {
@@ -27,6 +33,9 @@ const ProductCart = ({ item }) => {
       quantity: 1,
     });
     dispatch(action);
+    toggleWishList === true
+      ? setToggleWishList(false)
+      : setToggleWishList(true);
   };
 
   return (
@@ -50,7 +59,9 @@ const ProductCart = ({ item }) => {
           <motion.div
             whileTap={{ scale: 1.3 }}
             onClick={handleAddToWishList}
-            className={`menu-item rounded-circle d-flex align-items-center justify-content-center`}
+            className={`menu-item rounded-circle d-flex align-items-center justify-content-center
+            ${toggleWishList ? "active__menu" : ""}
+            `}
           >
             <i className="ri-heart-2-fill"></i>
           </motion.div>

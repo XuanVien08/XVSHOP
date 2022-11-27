@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
+const cartItems =
+  localStorage.getItem("cartItems") !== null
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
+const wishList =
+  localStorage.getItem("wishList") !== null
+    ? JSON.parse(localStorage.getItem("wishList"))
+    : [];
+
 const initialState = {
   showMiniCart: false,
-  cartItems: [],
-  wishListItems: [],
+  cartItems: cartItems,
+  wishList: wishList,
   // totalAmount: 0,
   // totalQuantity: 0,
 };
@@ -23,17 +32,23 @@ const cartSlice = createSlice({
     addWishList(state, action) {
       //newItem = {id, product , quantity}
       const newItem = action.payload;
-      const index = state.wishListItems.findIndex((x) => x.id === newItem.id);
+      const index = state.wishList.findIndex((x) => x.id === newItem.id);
       if (index >= 0) {
         //remove if already have been added
-        state.wishListItems = state.wishListItems.filter(
-          (x) => x.id !== newItem.id
-        );
-        toast.success("❌ Product Remove To Wish List");
+        state.wishList = state.wishList.filter((x) => x.id !== newItem.id);
+        toast.success("❌ Product successfully removed");
       } else {
-        state.wishListItems.push(newItem);
+        state.wishList.push(newItem);
         toast.success("❤️ Product Added To Wish List");
       }
+      localStorage.setItem(
+        "wishList",
+        JSON.stringify(
+          state.wishList.sort((a, b) =>
+            a.id > b.id ? 1 : a.id < b.id ? -1 : 0
+          )
+        )
+      );
     },
 
     addToCart(state, action) {
@@ -45,6 +60,14 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push(newItem);
       }
+      localStorage.setItem(
+        "cartItems",
+        JSON.stringify(
+          state.cartItems.sort((a, b) =>
+            a.id > b.id ? 1 : a.id < b.id ? -1 : 0
+          )
+        )
+      );
     },
 
     setQuantity(state, action) {
@@ -59,6 +82,14 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       const idNeedToRemove = action.payload;
       state.cartItems = state.cartItems.filter((x) => x.id !== idNeedToRemove);
+      localStorage.setItem(
+        "cartItems",
+        JSON.stringify(
+          state.cartItems.sort((a, b) =>
+            a.id > b.id ? 1 : a.id < b.id ? -1 : 0
+          )
+        )
+      );
     },
   },
 });

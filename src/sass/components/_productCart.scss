@@ -43,11 +43,11 @@
         opacity: 1;
       }
     }
-    // .active__menu {
-    //   color: white;
-    //   background-color: $primary-color;
-    //   opacity: 1;
-    // }
+    .active__menu {
+      color: white;
+      background-color: $primary-color;
+      opacity: 1;
+    }
   }
   a:hover {
     color: unset;
