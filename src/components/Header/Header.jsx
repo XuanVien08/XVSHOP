@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Container, Row } from "reactstrap";
 // import "./header.scss";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import user_icon from "../../assets/images/user-icon.png";
 import { useSelector } from "react-redux";
@@ -27,6 +27,7 @@ const nav__link = [
 ];
 
 const Header = () => {
+  const navigate = useNavigate();
   const headerRef = useRef(null);
   const menuRef = useRef(null);
 
@@ -42,15 +43,18 @@ const Header = () => {
       }
     });
   };
+  useEffect(() => {
+    stickyHeaderFunc();
+    return () => window.removeEventListener("scroll", stickyHeaderFunc);
+  }, []);
 
   const menuToggle = () => {
     menuRef.current.classList.toggle("active__menu");
   };
 
-  useEffect(() => {
-    stickyHeaderFunc();
-    return () => window.removeEventListener("scroll", stickyHeaderFunc);
-  }, []);
+  const navigateToCart = () => {
+    navigate("/cart");
+  };
 
   const totalQuantity = useSelector(cartItemCountSelector);
   const totalWishList = useSelector(wishListItemCountSelector);
@@ -97,7 +101,7 @@ const Header = () => {
                 <i className="ri-heart-2-line"></i>
                 <span className="badge">{totalWishList}</span>
               </span>
-              <span className="cart__icon">
+              <span className="cart__icon" onClick={navigateToCart}>
                 <i className="ri-shopping-bag-3-line"></i>
                 <span className="badge">{totalQuantity}</span>
               </span>

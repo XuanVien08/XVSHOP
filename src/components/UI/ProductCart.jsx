@@ -24,6 +24,7 @@ const ProductCart = ({ item }) => {
       quantity: 1,
     });
     dispatch(action);
+    toast.success("🛒 Product Added To The Cart");
   };
 
   const handleAddToWishList = () => {

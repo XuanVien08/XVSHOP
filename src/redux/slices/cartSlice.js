@@ -82,6 +82,8 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       const idNeedToRemove = action.payload;
       state.cartItems = state.cartItems.filter((x) => x.id !== idNeedToRemove);
+      toast.success("❌ Product successfully removed");
+
       localStorage.setItem(
         "cartItems",
         JSON.stringify(

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addWishList } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import ProductsList from "../components/UI/ProductList";
+
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     const action = addToCart({
       id: product.id,
-      product,
+      item: product,
       quantity: 1,
     });
     dispatch(action);
@@ -74,6 +75,7 @@ const ProductDetail = () => {
     };
 
     console.log(reviewObj);
+    toast.success("Review submitted");
   };
 
   useEffect(() => {
@@ -193,24 +195,40 @@ const ProductDetail = () => {
                             type="text"
                             placeholder="Enter name"
                             ref={reviewUser}
+                            required
                           />
                         </div>
                         <div className="form__group d-flex align-items-center gap-5 rating__group">
-                          <span onClick={() => setRating(1)}>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(1)}
+                          >
                             1<i className="ri-star-fill"></i>
-                          </span>
-                          <span onClick={() => setRating(2)}>
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(2)}
+                          >
                             2<i className="ri-star-fill"></i>
-                          </span>
-                          <span onClick={() => setRating(3)}>
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(3)}
+                          >
                             3<i className="ri-star-fill"></i>
-                          </span>
-                          <span onClick={() => setRating(4)}>
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(4)}
+                          >
                             4<i className="ri-star-fill"></i>
-                          </span>
-                          <span onClick={() => setRating(5)}>
-                            5<i className="ri-star-half-s-line"></i>
-                          </span>
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(5)}
+                          >
+                            5<i className="ri-star-fill"></i>
+                          </motion.span>
                         </div>
                         <div className="form__group">
                           <textarea
@@ -218,6 +236,7 @@ const ProductDetail = () => {
                             type="text"
                             placeholder="Review Message ..."
                             ref={reviewMsg}
+                            required
                           />
                         </div>
 
