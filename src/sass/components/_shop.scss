@@ -23,26 +23,25 @@
       }
     }
   }
-
-  .search__box {
+}
+.search__box {
+  width: 100%;
+  @include flex(center, space-between);
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  padding-right: 12px;
+  padding-left: 2px;
+  cursor: pointer;
+  input {
     width: 100%;
-    @include flex(center, space-between);
-    border: 1px solid $primary-color;
-    border-radius: 5px;
-    padding-right: 12px;
-    padding-left: 2px;
-    cursor: pointer;
-    input {
-      width: 100%;
-      border: none;
-      outline: none;
-      padding: 8px 10px;
-    }
-    span {
-      color: $primary-color;
-      i {
-        font-size: 1.2rem;
-      }
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+  }
+  span {
+    color: $primary-color;
+    i {
+      font-size: 1.2rem;
     }
   }
 }
