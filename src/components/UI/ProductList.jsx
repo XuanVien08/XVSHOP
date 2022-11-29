@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ProductCart from "./ProductCart";
 
 const ProductList = ({ data = [] }) => {
+  
   return (
     <>
       {data?.map((item) => (
