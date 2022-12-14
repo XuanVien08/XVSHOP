@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addWishList } from "../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
-const wishList1 = localStorage.getItem("wishList");
+const wishList1 = localStorage.getItem("wishList") || [];
 
 const ProductCart = ({ item }) => {
   const dispatch = useDispatch();
