@@ -6,7 +6,7 @@ const Clock = () => {
   let interval;
 
   const onCountDown = () => {
-    const destination = new Date("Nov 30,2022").getTime();
+    const destination = new Date("12 30,2022").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const different = destination - now;

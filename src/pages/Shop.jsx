@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
@@ -9,6 +9,10 @@ import debounce from "lodash.debounce";
 
 const Shop = () => {
   const [productsData, setProductsData] = useState(products);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [productsData]);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
@@ -28,9 +32,12 @@ const Shop = () => {
     const searchedProducts = products.filter((item) =>
       item.productName.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    console.log(searchTerm);
     setProductsData(searchedProducts);
   };
-  const debouncedChangeHandler = useCallback(debounce(handleSearch, 500), []);
+  const debouncedChangeHandler = useCallback(debounce(handleSearch, 500), [
+    productsData,
+  ]);
 
   return (
     <Helmet title="shop">

@@ -114,7 +114,24 @@ const CheckOut = () => {
               </Form>
             </Col>
 
-            <Col lg="4"></Col>
+            <Col lg="4">
+              <div className="checkout__cart">
+                <h6 className="">
+                  Total Qty: <span>0</span>
+                </h6>
+                <h6 className="">
+                  Subtotal: <span>$120</span>
+                </h6>{" "}
+                <h6 className="">
+                  Shipping: <span>$1</span>
+                </h6>
+                <h6>Shipping Free</h6>
+                <h4 className="">
+                  Total Cost: <span>$120</span>
+                </h4>
+              </div>
+              <button className="btn buy__btn auth__btn"></button>
+            </Col>
           </Row>
         </Container>
       </section>
